@@ -1,0 +1,61 @@
+$CheriesSage: #b6c5b8;
+$Baloo: 'Baloo Bhaina 2', cursive;
+
+html {
+  background:  $CheriesSage;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: $Baloo;
+  // margin: 2;
+  padding: 0;
+  color: #014421;
+}
+
+h1 {
+  letter-spacing: .5em;
+  font-size: 2.5em;
+  font-weight: bold;
+  border: 1px solid rgb(155, 105, 52);
+  background: #FFF4E1;
+  text-shadow: 2px 2px #92b7fe;
+}
+
+h2 {
+  font-size: 2em;
+  color: #2f4f4f;
+  text-shadow: 2px 2px #f0ead6;
+}
+
+
+#image {
+  width: 40rem
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#outerBox {
+  position: relative;
+  max-width: 600px;
+  // margin: 0 auto;
+  // padding: 10px;
+  box-shadow: 10px 2px 2px rgba(0, 0, 0, 0.411);
+  border-radius: 5px;
+}
+
+#innerbox {
+  margin-top: auto;
+  background: #f0ead6;
+  padding: 1px;
+  width: 85%;
+  margin: 5px auto;
+}
+
+ul {
+  list-style-type: circle;
+}
