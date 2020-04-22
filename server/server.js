@@ -30,9 +30,9 @@ app.post('/signup',
 );
 
 // GET/ login (NEED TO MAKE THIS ENDPOINT)
-app.get('/login',
+app.post('/login',
   userController.verifyLoginUser,
-  (req, res) => res.status(200).json(res.locals.foundUser)
+  (req, res) => res.status(200).json("you have logged in!")
 );
 
 // ----------------------------------------------------------------------------
