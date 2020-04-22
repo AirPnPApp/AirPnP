@@ -2,6 +2,7 @@ import React from 'react';
 
 
 const Landing = (props) => {
+  // console.log(nps)
   return(
     <div>
       hello

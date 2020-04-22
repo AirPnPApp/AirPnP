@@ -7,6 +7,7 @@ const initialState = {
 
   // State for all Markers
   toggle: false,
+  closestThree: [],
   parksList: [],
   // State for Individual City
   showPark: false,
@@ -79,9 +80,13 @@ const parkReducer = (state = initialState, action) => {
       }
     
     case types.SET_LOCATION:
+      const newLocation = action.location;
+      const closestThree = action.closestThree;
+
       return {
         ...state,
-        location: action.payload,
+        location: newLocation,
+        closestThree: closestThree
       }
 
     default:
