@@ -3,16 +3,23 @@ import * as types from '../constants/actionTypes.js';
 
 const initialState = {
   loggedInUser: '',
+  location: '',
+  locationString: '',
 
   // State for all Markers
   toggle: false,
+  closestThree: [],
   parksList: [],
   // State for Individual City
   showPark: false,
   fullName: '',
   description: '',
   weather: '',
-  images: ''
+  images: '',
+  city: '',
+  state: '',
+  activities: ''
+
 }
 
 const parkReducer = (state = initialState, action) => {
@@ -66,6 +73,9 @@ const parkReducer = (state = initialState, action) => {
       const description = parkData.description;
       const weather = parkData.weather;
       const images = parkData.images;
+      const city = parkData.city;
+      const stateCode = parkData.stateCode;
+      const activities = parkData.activities;
       let showPark = true;
 
       return {
@@ -74,7 +84,27 @@ const parkReducer = (state = initialState, action) => {
         description,
         weather,
         images,
+        city,
+        stateCode,
+        activities,
         showPark
+      }
+    
+    case types.SET_LOCATION:
+      const newLocation = action.location;
+      const closestThree = action.closestThree;
+
+      return {
+        ...state,
+        location: newLocation,
+        closestThree: closestThree,
+        locationString: action.locationString,
+      }
+    
+    case types.SET_PARKS:
+      return {
+        ...state,
+        closestThree: action.closestThree,
       }
 
     default:
