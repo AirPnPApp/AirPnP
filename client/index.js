@@ -16,7 +16,7 @@ import {
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <HomeContainer />
+      <App />
     </Router>
   </Provider>,
   document.getElementById('root')

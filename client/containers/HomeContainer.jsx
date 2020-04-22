@@ -2,6 +2,7 @@ import React from 'react';
 import Connected from './MapContainer.jsx';
 import MapContainer from './MapContainer.jsx';
 import Park from '../components/park.jsx';
+import ParkDisplay from '../components/ParkDisplay.jsx'
 import Login from '../components/login.jsx';
 import { connect } from 'react-redux';
 import {
@@ -13,7 +14,7 @@ import {
 
 
 // (Optional) import stylesheet here.
-// import '../stylesheets/styles.scss';
+import '../stylesheets/styles.scss';
 
 
 const mapStateToProps = state => ({
@@ -30,18 +31,16 @@ class HomeContainer extends React.Component {
   render() {
     return(
         <Router>
-        <div id='main'>
-          <h1>🌲  Parks Planner  🌲</h1>
-          <Link to="/signup">Sign Up / Log-in</Link>
+        <div id='home-main'>
             <Switch>
               <Route path="/signup">
                 <Login />
               </Route>
               <Route path="/">
-                    <div  id="innerBox">
-                      {this.props.showPark ?
-                        <Park />
-                        : <div id="innerBox"><b>Select a park to view info!</b></div>}
+                    <div id="innerBox">
+                        
+                        <ParkDisplay />
+                        
                     </div>
                       <MapContainer />
               </Route>

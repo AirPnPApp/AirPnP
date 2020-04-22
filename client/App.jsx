@@ -1,6 +1,6 @@
 import React from 'react';
-import Connected from './containers/mapContainer.jsx';
-import MapContainer from './containers/mapContainer.jsx';
+import Connected from './containers/MapContainer.jsx';
+import MapContainer from './containers/MapContainer.jsx';
 import Nav from './components/nav.jsx'
 import Park from './components/park.jsx';
 import Login from './components/login.jsx';
@@ -17,6 +17,7 @@ import {
 
 // (Optional) import stylesheet here.
 import './stylesheets/styles.scss';
+import HomeContainer from './containers/HomeContainer.jsx';
 
 const mapStateToProps = state => ({
   loggedInUser: state.park.loggedInUser,
@@ -60,14 +61,7 @@ class App extends React.Component {
             <h2>Hello, {this.props.loggedInUser} ! </h2>
               <Switch>
                 <Route path="/">
-                  <div>
-                    <MapContainer />
-                    <div id="innerBox">
-                      {this.props.showPark ?
-                        <Park />
-                        : <div id="innerBox"><b>Select a park to view info!</b></div>}
-                    </div>
-                  </div>
+                  <HomeContainer />
                 </Route>
               </Switch>
           </div>
@@ -81,21 +75,11 @@ class App extends React.Component {
         <div id='main'>
           <h1>🌲  Parks Planner  🌲</h1>
           <Link to="/signup">Sign Up / Log-in</Link>
-            <Switch>
-              <Route path="/signup">
-                <Login />
-              </Route>
-              <Route path="/">
-                <div>
-                  <MapContainer />
-                  <div id="innerBox">
-                    {this.props.showPark ?
-                      <Park />
-                      : <div id="innerBox"><b>Select a park to view info!</b></div>}
-                  </div>
-                </div>
-              </Route>
-            </Switch>
+          <Switch>
+                <Route path="/">
+                  <HomeContainer />
+                </Route>
+              </Switch>
         </div>
       </Router >
     )

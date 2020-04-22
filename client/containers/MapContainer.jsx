@@ -9,7 +9,6 @@ import Loading from '../components/Loading.jsx'
 // The <Marker /> component accepts a position prop that defines the location for the position on the map. 
 // It can be either a raw object or a google.maps.LatLng() instance.
 const mapStyles = {
-  width: '100%',
   height: '70%'
 }
 const mapStateToProps = state => ({
@@ -50,7 +49,7 @@ class MapContainer extends Component {
       return (
         <div
           id="map-container"
-          style={{ position: 'right', width: '50%', height: '60vh' }}
+          style={{ position: 'center', width: '25%', height: '60vh' }}
         >
           <Map
             id="map"
