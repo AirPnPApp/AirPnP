@@ -4,6 +4,7 @@ import Park from '../components/park.jsx'
 import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
 
+
 // The <Marker /> component accepts a position prop that defines the location for the position on the map. 
 // It can be either a raw object or a google.maps.LatLng() instance.
 const mapStyles = {
@@ -14,6 +15,7 @@ const mapStateToProps = state => ({
   parksList: state.park.parksList,
   toggle: state.park.toggle,
   showPark: state.park.showPark,
+  location: state.park.location,
 })
 
 
@@ -21,6 +23,7 @@ const mapDispatchToProps = dispatch => ({
   toggle: () => dispatch(actions.toggle()),
   fetchMarkers: () => dispatch(actions.fetchMarkers()),
   fetchParkInfo: (parkCode) => dispatch(actions.fetchParkInfo(parkCode)),
+  setParks: () => {dispatch(actions.setParks())},
 })
 
 class MapContainer extends Component {
@@ -31,10 +34,13 @@ class MapContainer extends Component {
   componentDidMount() {
     this.props.toggle();
     this.props.fetchMarkers();
+    if (this.props.location.length > 0) {
+      this.props.setParks()
+    }
   }
 
   render() {
-
+    
     // create empty array for markers
     const markersArray = []
     //loop through state.parksList to get all relevant info for marker component
