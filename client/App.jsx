@@ -25,7 +25,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   setLocation: (e) => {
     e.preventDefault();
-    const location = Number(e.target.firstChild.value);
+    const location = e.target.firstChild.value;
     dispatch(actions.setLocation(location))
   },
   

@@ -7,7 +7,7 @@ const Landing = (props) => {
     <div>
       hello
       <form onSubmit={props.setLocation}>
-        <input type="text" />
+        <input type="number" />
         <button>Submit</button>
       </form>
     </div>

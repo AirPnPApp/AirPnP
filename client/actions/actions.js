@@ -1,8 +1,7 @@
 import * as types from '../constants/actionTypes';
 import axios from 'axios';
-import Geocode from 'react-geocode';
-import locationHelper from '../locationHelper';
 const GEO_LOCATION_KEY = process.env.GEO_LOCATION_KEY;
+import locationHelper from '../locationHelper';
 
 export const toggle = () => ({
   type: types.TOGGLE,
@@ -67,27 +66,24 @@ export const logIn = (logInInfo) => {
 
 // ---------------------------------------------------------------
 // Two below update location
-export const SET_LOCATION = (closestThree, location) => ({
+export const SET_LOCATION = (closestThree, location, locationString) => ({
   type: types.SET_LOCATION,
   location: location,
   closestThree: closestThree,
+  locationString,
 });
 
 export const setLocation = (location) => {
-  Geocode.setApiKey(`${GEO_LOCATION_KEY}`); //! need to figure out env
-
   return (dispatch) => {
-    return Geocode.fromAddress(location).then(
-      (response) => {
-        const { lat, lng } = response.results[0].geometry.location;
-        const closestThree = locationHelper([lat, lng]);
-        dispatch(SET_LOCATION(closestThree, [lat, lng]));
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  };
+    fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${GEO_LOCATION_KEY}`)
+    .then(res => res.json())
+    .then(data => {
+      const { lat, lng } = data.results[0].geometry.location;
+      const locationString = data.results[0].formatted_address;
+      const closestThree = locationHelper([lat, lng]);
+      dispatch(SET_LOCATION(closestThree, [lat, lng], locationString));
+    })
+  }
 };
 
 // ---------------------------------------------------------------
@@ -103,6 +99,7 @@ export const setParks = () => {
       .then(res => res.json())
       .then(parsed => {
         dispatch(SET_PARKS(parsed.data))
+        dispatch(toggle())
       // .catch(err => console.log('error in nps fetch in actions'))
     })
   };
