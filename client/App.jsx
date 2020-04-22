@@ -36,11 +36,13 @@ class App extends React.Component {
             <h2>Hello, {this.props.loggedInUser} ! </h2>
               <Switch>
                 <Route path="/">
-                  <MapContainer />
-                  <div id="innerBox">
-                    {this.props.showPark ?
-                      <Park />
-                      : <div id="innerBox"><b>Select a park to view info!</b></div>}
+                  <div>
+                    <MapContainer />
+                    <div id="innerBox">
+                      {this.props.showPark ?
+                        <Park />
+                        : <div id="innerBox"><b>Select a park to view info!</b></div>}
+                    </div>
                   </div>
                 </Route>
               </Switch>
@@ -60,11 +62,13 @@ class App extends React.Component {
                 <Login />
               </Route>
               <Route path="/">
-                <MapContainer />
-                <div id="innerBox">
-                  {this.props.showPark ?
-                    <Park />
-                    : <div id="innerBox"><b>Select a park to view info!</b></div>}
+                <div>
+                  <MapContainer />
+                  <div id="innerBox">
+                    {this.props.showPark ?
+                      <Park />
+                      : <div id="innerBox"><b>Select a park to view info!</b></div>}
+                  </div>
                 </div>
               </Route>
             </Switch>

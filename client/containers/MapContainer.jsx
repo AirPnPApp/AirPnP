@@ -72,7 +72,7 @@ class MapContainer extends Component {
       return (
         <div
           id="map-container"
-          style={{ position: 'relative', width: '50%', height: '60vh' }}
+          style={{ position: 'right', width: '50%', height: '60vh' }}
         >
           <Map
             id="map"

@@ -16,6 +16,7 @@
   "license": "ISC",
   "homepage": "",
   "dependencies": {
+    "@material-ui/core": "^4.9.11",
     "axios": "^0.19.2",
     "bcrypt": "^4.0.1",
     "concurrently": "^5.1.0",
