@@ -30,6 +30,7 @@ export const parkInfo = (parkData) => ({
   type: types.PARKINFO,
   payload: parkData,
 });
+
 // Fetch request for specific park information
 export const fetchParkInfo = (parkCode) => {
   return (dispatch) => {

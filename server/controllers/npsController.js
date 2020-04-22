@@ -41,7 +41,9 @@ npsController.getOnePark = (req, res, next) => {
       parkObj.description = info.description;
       parkObj.weather = info.weatherInfo;
       parkObj.images = info.images[0].url;
-
+      parkObj.city = info.addresses[0].city;
+      parkObj.stateCode = info.addresses[0].stateCode;
+      parkObj.activities = info.activities
       // console.log('npsController - parkObj:', parkObj);
       res.locals.onePark = parkObj;
       next();
