@@ -15,6 +15,7 @@ const mapStateToProps = state => ({
   parksList: state.park.parksList,
   toggle: state.park.toggle,
   showPark: state.park.showPark,
+  location: state.park.location,
 })
 
 
@@ -22,6 +23,7 @@ const mapDispatchToProps = dispatch => ({
   toggle: () => dispatch(actions.toggle()),
   fetchMarkers: () => dispatch(actions.fetchMarkers()),
   fetchParkInfo: (parkCode) => dispatch(actions.fetchParkInfo(parkCode)),
+  setParks: () => {dispatch(actions.setParks())},
 })
 
 class MapContainer extends Component {
@@ -32,6 +34,9 @@ class MapContainer extends Component {
   componentDidMount() {
     this.props.toggle();
     this.props.fetchMarkers();
+    if (this.props.location.length > 0) {
+      this.props.setParks()
+    }
   }
 
   render() {

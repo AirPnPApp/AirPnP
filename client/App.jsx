@@ -27,22 +27,28 @@ const mapDispatchToProps = dispatch => ({
     e.preventDefault();
     const location = Number(e.target.firstChild.value);
     dispatch(actions.setLocation(location))
-  }
+  },
+  
 });
+
+
 
 
 class App extends React.Component {
   constructor(props) {
     super(props)
   }
+  
+  componentDidMount() {
+    // send dispatch to get three closest from nps
+    
+  }
 
   render() {
     // CHECKING IF USER IS LOGGED IN/ SIGNED UP --------------------------------
-    return(
-      <div>
-        <Landing setLocation={this.props.setLocation}/>
-      </div>
-    )
+    if (this.props.location === '') {
+      return <Landing setLocation={this.props.setLocation}/>
+    }
     // User is logged in/ signed up
     if (this.props.loggedInUser.length > 0) {
       return (

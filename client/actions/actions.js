@@ -2,6 +2,7 @@ import * as types from '../constants/actionTypes';
 import axios from 'axios';
 import Geocode from 'react-geocode';
 import locationHelper from '../locationHelper';
+const GEO_LOCATION_KEY = process.env.GEO_LOCATION_KEY;
 
 export const toggle = () => ({
   type: types.TOGGLE,
@@ -66,14 +67,14 @@ export const logIn = (logInInfo) => {
 
 // ---------------------------------------------------------------
 // Two below update location
-export const SET_LOCATION = (location, closestThree) => ({
+export const SET_LOCATION = (closestThree, location) => ({
   type: types.SET_LOCATION,
   location: location,
   closestThree: closestThree,
 });
 
 export const setLocation = (location) => {
-  Geocode.setApiKey('AIzaSyCMa2NoaFNvhZB_5f7-37JVulI-Ej-AwzM'); //! need to figure out env
+  Geocode.setApiKey(`${GEO_LOCATION_KEY}`); //! need to figure out env
 
   return (dispatch) => {
     return Geocode.fromAddress(location).then(
@@ -88,3 +89,23 @@ export const setLocation = (location) => {
     );
   };
 };
+
+// ---------------------------------------------------------------
+// Two below do fetch to nps
+export const SET_PARKS = (closestThree) => ({
+  type: types.SET_PARKS,
+  closestThree: closestThree,
+});
+
+export const setParks = () => {
+  return (dispatch) => {
+    return fetch(`https://developer.nps.gov/api/v1/parks?parkCode=yose,anac,cave&api_key=${process.env.NPS_API_KEY}`)
+      .then(res => res.json())
+      .then(parsed => {
+        dispatch(SET_PARKS(parsed.data))
+      // .catch(err => console.log('error in nps fetch in actions'))
+    })
+  };
+};
+
+

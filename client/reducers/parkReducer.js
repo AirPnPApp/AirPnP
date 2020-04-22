@@ -88,6 +88,12 @@ const parkReducer = (state = initialState, action) => {
         location: newLocation,
         closestThree: closestThree
       }
+    
+    case types.SET_PARKS:
+      return {
+        ...state,
+        closestThree: action.closestThree,
+      }
 
     default:
       return state
