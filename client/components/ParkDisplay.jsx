@@ -16,8 +16,8 @@ class ParkDisplay extends Component {
         <h1>{this.props.fullName}</h1>
         <img id="parkDisplayImage" src={this.props.images}/>
         <ul>
-          <li id='description'>{this.props.description}</li>
-          <li id='weather'>{this.props.weather}</li>
+          <li className="parkItem" id='description'>{this.props.description}</li>
+          <li className="parkItem"id='weather'>{this.props.weather}</li>
         </ul>
       </div>
     )

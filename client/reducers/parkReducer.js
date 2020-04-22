@@ -12,7 +12,11 @@ const initialState = {
   fullName: '',
   description: '',
   weather: '',
-  images: ''
+  images: '',
+  city: '',
+  state: '',
+  activities: ''
+
 }
 
 const parkReducer = (state = initialState, action) => {
@@ -66,6 +70,9 @@ const parkReducer = (state = initialState, action) => {
       const description = parkData.description;
       const weather = parkData.weather;
       const images = parkData.images;
+      const city = parkData.city;
+      const stateCode = parkData.stateCode;
+      const activities = parkData.activities;
       let showPark = true;
 
       return {
@@ -74,6 +81,9 @@ const parkReducer = (state = initialState, action) => {
         description,
         weather,
         images,
+        city,
+        stateCode,
+        activities,
         showPark
       }
 

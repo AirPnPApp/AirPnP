@@ -1,6 +1,7 @@
 import React from 'react';
 import Connected from './containers/mapContainer.jsx';
 import MapContainer from './containers/mapContainer.jsx';
+import Nav from './components/nav.jsx'
 import Park from './components/park.jsx';
 import Login from './components/login.jsx';
 import ParkDisplay from './components/ParkDisplay.jsx';

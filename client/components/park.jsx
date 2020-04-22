@@ -4,11 +4,10 @@ import { connect } from 'react-redux';
 // mapStateToProps
 const mapStateToProps = state => ({
   fullName: state.park.fullName,
-  description: state.park.description,
-  weather: state.park.weather,
   images: state.park.images,
-  showPark: state.park.showPark,
-
+  city: state.park.city,
+  stateCode: state.park.stateCode
+  // closestThree: state.park.closestThree
 })
 
 
@@ -17,11 +16,18 @@ const mapStateToProps = state => ({
 
 class Park extends Component {
   render() {
+    // for loop to push in three Park Cards
+    // const parkCardArray = [];
+    // for (let i = 0; i < this.state.closestThree.length; i++) {
+    //   parkCardArry.push(<FeedItem key={i} id={i} />);
+    // }
+
     return (
       <div id='Park'>
         <ul>
           <h2>{this.props.fullName}</h2>
-          <img id='image' src={this.props.images}></img>
+          <img id="image" src={this.props.images}></img>
+          <h4>{this.props.city}, {this.props.stateCode}</h4>
         </ul>
       </div >
     )
