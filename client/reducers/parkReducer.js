@@ -3,6 +3,7 @@ import * as types from '../constants/actionTypes.js';
 
 const initialState = {
   loggedInUser: '',
+  location: '',
 
   // State for all Markers
   toggle: false,
@@ -75,6 +76,12 @@ const parkReducer = (state = initialState, action) => {
         weather,
         images,
         showPark
+      }
+    
+    case types.SET_LOCATION:
+      return {
+        ...state,
+        location: action.payload,
       }
 
     default:

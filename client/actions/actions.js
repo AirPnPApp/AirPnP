@@ -1,5 +1,12 @@
 import * as types from '../constants/actionTypes';
 import axios from 'axios';
+import Geocode from "react-geocode";
+
+
+
+
+
+
 
 export const toggle = () => ({
     type: types.TOGGLE,
@@ -68,3 +75,30 @@ export const logIn = logInInfo => {
             })
     }
 }
+
+// ---------------------------------------------------------------
+// Two below update location
+export const SET_LOCATION = (location) => ({
+    type: types.SET_LOCATION,
+    payload: location
+});
+
+export const setLocation = location => {
+    Geocode.setApiKey("AIzaSyCMa2NoaFNvhZB_5f7-37JVulI-Ej-AwzM");
+    
+    return (dispatch) => {
+        return Geocode.fromAddress(location).then(
+            response => {
+                const { lat, lng } = response.results[0].geometry.location;
+                console.log(lat, lng);
+                dispatch(SET_LOCATION([lat,lng]))
+                
+            },
+            error => {
+                console.error(error);
+            }
+        );
+    }
+};
+
+

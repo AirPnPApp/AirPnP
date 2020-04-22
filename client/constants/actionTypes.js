@@ -8,3 +8,4 @@ export const MARKER = "MARKER";
 export const PARKINFO = "PARKINFO";
 
 export const LOGGED_IN_USER = "LOGGED_IN_USER";
+export const SET_LOCATION = "SET_LOCATION";

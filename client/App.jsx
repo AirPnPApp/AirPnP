@@ -3,6 +3,8 @@ import Connected from './containers/mapContainer.jsx';
 import MapContainer from './containers/mapContainer.jsx';
 import Park from './components/park.jsx';
 import Login from './components/login.jsx';
+import Landing from './components/Landing.jsx';
+import * as actions from './actions/actions';
 import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,
@@ -17,7 +19,17 @@ import './stylesheets/styles.scss';
 const mapStateToProps = state => ({
   loggedInUser: state.park.loggedInUser,
   showPark: state.park.showPark,
+  location: state.park.location,
 });
+
+const mapDispatchToProps = dispatch => ({
+  setLocation: (e) => {
+    e.preventDefault();
+    const location = Number(e.target.firstChild.value);
+    dispatch(actions.setLocation(location))
+  }
+});
+
 
 class App extends React.Component {
   constructor(props) {
@@ -26,7 +38,11 @@ class App extends React.Component {
 
   render() {
     // CHECKING IF USER IS LOGGED IN/ SIGNED UP --------------------------------
-
+    return(
+      <div>
+        <Landing setLocation={this.props.setLocation}/>
+      </div>
+    )
     // User is logged in/ signed up
     if (this.props.loggedInUser.length > 0) {
       return (
@@ -77,4 +93,4 @@ class App extends React.Component {
 
 
 
-export default connect(mapStateToProps, null)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
