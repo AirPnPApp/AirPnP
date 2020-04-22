@@ -3,6 +3,8 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import Park from '../components/park.jsx'
 import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
+import Loading from '../components/Loading.jsx'
+
 
 // The <Marker /> component accepts a position prop that defines the location for the position on the map. 
 // It can be either a raw object or a google.maps.LatLng() instance.
@@ -14,13 +16,16 @@ const mapStateToProps = state => ({
   parksList: state.park.parksList,
   toggle: state.park.toggle,
   showPark: state.park.showPark,
+  location: state.park.location,
+  locationString: state.park.locationString,
 })
 
 
 const mapDispatchToProps = dispatch => ({
-  toggle: () => dispatch(actions.toggle()),
+  triggerToggle: () => dispatch(actions.toggle()),
   fetchMarkers: () => dispatch(actions.fetchMarkers()),
   fetchParkInfo: (parkCode) => dispatch(actions.fetchParkInfo(parkCode)),
+  setParks: () => {dispatch(actions.setParks())},
 })
 
 class MapContainer extends Component {
@@ -29,44 +34,17 @@ class MapContainer extends Component {
   }
 
   componentDidMount() {
-    this.props.toggle();
-    this.props.fetchMarkers();
+    if (this.props.location.length > 0) {
+      this.props.setParks()
+    }
   }
 
   render() {
-
-    // create empty array for markers
-    const markersArray = []
-    //loop through state.parksList to get all relevant info for marker component
-
-    for (let i = 0; i < this.props.parksList.length; i++) {
-      markersArray.push(<Marker
-        // Key so React doesn't complain
-        key={this.props.parksList[i].code}
-        // Code to map to the server
-        code={this.props.parksList[i].code}
-        // Name of the park
-        name={this.props.parksList[i].name}
-        // OnClick functionality for each Marker to get specific park datao
-        // onClick triggers an action that renders park information in park component
-        onClick={() => this.props.fetchParkInfo({ params: { code: this.props.parksList[i].code } })
-        }
-        // Position for lat and long to render on the map
-        position={{
-          lat: this.props.parksList[i].position.lat,
-          lng: this.props.parksList[i].position.long,
-        }
-        }
-      // give onClick to Marker
-      // onClick triggers an action that renders park information in park component
-      />)
-    }
-
-    //push each component into above array
-
+    
+    console.log(this.props.toggle)
     if (!this.props.toggle) {
       return (
-        <h1>Loading..</h1>
+        <Loading location={this.props.location} locationString={this.props.locationString}/>
       )
     } else {
       return (
@@ -84,7 +62,7 @@ class MapContainer extends Component {
             }}
             zoom={4}
           >
-            {markersArray}
+            
           </Map >
         </div>
       )
