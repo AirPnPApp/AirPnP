@@ -3,6 +3,7 @@ import Connected from './containers/mapContainer.jsx';
 import MapContainer from './containers/mapContainer.jsx';
 import Park from './components/park.jsx';
 import Login from './components/login.jsx';
+import ParkDisplay from './components/ParkDisplay.jsx';
 import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,

@@ -21,11 +21,8 @@ class Park extends Component {
       <div id='Park'>
         <ul>
           <h2>{this.props.fullName}</h2>
-          <li id='description'>{this.props.description}</li>
-          <li id='weather'>{this.props.weather}</li>
           <img id='image' src={this.props.images}></img>
         </ul>
-
       </div >
     )
   }
