@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Park from './park.jsx';
 
 import '../stylesheets/styles.scss';
  
@@ -34,12 +35,12 @@ class ParkDisplay extends Component {
       <div id="parkDisplayContainer" >
         Annacostia National Park
         <div id="parkDisplayContainerSmall">
-        <img id="parkDisplayImage" src="https://www.nps.gov/common/uploads/structured_data/3C82A965-1DD8-B71B-0B42F2CD698E11A7.jpg" width='250px'/>
+          <img id="parkDisplayImage" src="https://www.nps.gov/common/uploads/structured_data/3C82A965-1DD8-B71B-0B42F2CD698E11A7.jpg" width='250px'/>
         </div>
         <div>
           <ul>
             <li id='description'>"Welcome to Anacostia Park, your neighborhood national park in the heart of Washington, DC!\nEnjoy exercise along the river trail or relax by the water, Anacostia Park is a breath of fresh air and a space to unwind amid a bustling city."</li>
-            <li id='weather'>"Spring brings mild temperatures and a light breeze along with springtime flower blooms. Summer can be hot and humid. Fall cools down and changing of the seasons brings changing of the colors in leaves. Winter gets cold and temperatures may drop below freezing."</li>
+            <li id='weather'>"Spring brings mild temperatures and a light breeze along with springtime flower blooms. Summer can be hot and humid. Fall cools down and changing of the seasons brings changing of </li>
           </ul>
         </div>
       </div>
