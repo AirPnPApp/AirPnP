@@ -14,7 +14,7 @@ import { Link, Redirect } from 'react-router-dom';
 
 
 // pull out the pieces of state that we want to render for specific park data
-
+let park = "/park"
 
 class Park extends Component {
   constructor() {
@@ -28,7 +28,7 @@ class Park extends Component {
 
   render() {
     return (
-      <Link to="/park">
+      <Link to={park}>
         <div id='Park'>
           <ul>
             <h2>{this.props.fullName}</h2>
