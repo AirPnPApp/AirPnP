@@ -65,7 +65,7 @@ class HomeContainer extends React.Component {
                       fullName={park.fullName}
                       images={park.images}
                       states={park.states}                      
-                
+                      description={park.description}
                     />
                   })}                  
                 </div>

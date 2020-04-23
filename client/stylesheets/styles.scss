@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 
@@ -15,7 +16,7 @@
   display: flex;
   flex-direction: row;
   // justify-content: flex-start;
-  height: 100vh;
+  height: 100%;
   background-color: gray;
 }
 
@@ -27,15 +28,34 @@
   border: 1px solid black;
 }
 
-.parkCard {
-  border: 1px solid black;
-  padding: 10px;
+
+// DASHBOARD
+.div1 {
+  background: #2d4218;
+  width: 40%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
-.div1 {
-  background: #f0ead6;
-  width: 50%;
+
+.parkCard {
+  padding: 15px;
+  margin-top: 10px;
 }
+
+.parkCardImage {
+  height: 200px;
+  // max-width: 100%;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+}
+
+
 
 .div2 {
   flex: 3;
