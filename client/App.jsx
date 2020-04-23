@@ -54,13 +54,10 @@ class App extends React.Component {
       return (
         <Router>
           <div id='main'>
+            <Nav />
               <Switch>
-                <Route exact path="/">
-                  <HomeContainer />
-                </Route>
-                <Route exact path="/park">
-                  <ParkDisplay />
-                </Route>
+                <Route path="/" exact component={HomeContainer} />
+                <Route path="/park" exact component={ParkDisplay} />
               </Switch>
           </div>
         </Router >
@@ -73,13 +70,9 @@ class App extends React.Component {
         <div id='main'>
           <Link to="/signup">Sign Up / Log-in</Link>
           <Switch>
-                <Route exact path="/">
-                  <HomeContainer />
-                </Route>
-                <Route exact path="/park">
-                  <ParkDisplay />
-                </Route>
-              </Switch>
+            <Route path="/" exact component ={HomeContainer} />
+            <Route path="/park" exact component={ParkDisplay} />
+          </Switch>
         </div>
       </Router >
     )

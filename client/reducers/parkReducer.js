@@ -10,6 +10,7 @@ const initialState = {
   toggle: false,
   closestThree: [],
   parksList: [],
+  currentPark: '',
   // State for Individual City
   showPark: false,
   fullName: '',
@@ -107,13 +108,6 @@ const parkReducer = (state = initialState, action) => {
         closestThree: action.closestThree,
       }
     
-    case types.SET_INFO_WINDOW:
-      return {
-        ...state,
-        selectedPlace: action.payload.selectedPlace,
-        showingInfoWindow: action.payload.showingInfoWindow,
-        activeMarker: action.payload.activeMarker,   
-      }
 
     default:
       return state
