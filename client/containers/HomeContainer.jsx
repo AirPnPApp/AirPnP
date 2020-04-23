@@ -29,7 +29,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setParks: () => {dispatch(actions.setParks())},
+  setParks: (closestThree) => {dispatch(actions.setParks(closestThree))},
 })
 
 
@@ -40,7 +40,7 @@ class HomeContainer extends React.Component {
 
   componentDidMount() {
     if (this.props.location.length > 0) {
-      this.props.setParks()
+      this.props.setParks(this.props.closestThree)
     }
   }
   
@@ -58,19 +58,20 @@ class HomeContainer extends React.Component {
                 <Login />
               </Route>
               <Route path="/">
-                <div id="innerBox">
+                <div className="div1">
                   {this.props.closestThree.map((park, index) => {
                     return <Park 
                       key={park.fullName + index}
                       fullName={park.fullName}
                       images={park.images}
-                      stateCode={park.stateCode}
-                      city={park.city}
-                      
+                      states={park.states}                      
+                
                     />
                   })}                  
                 </div>
-                <MapContainer />
+                <div className="div2">
+                  <MapContainer />
+                </div>
               </Route>
             </Switch>
         </div>
