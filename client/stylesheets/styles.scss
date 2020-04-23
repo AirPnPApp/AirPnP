@@ -6,18 +6,25 @@
 }
 
 
-// #main {
-//   // display: flex;
-//   // flex-direction: column;
-//   // justify-content: center;
-// }
+// LOADING PAGE
+
+.backdrop {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background-color: rgb(239, 239, 239);
+  
+}
+
+
+// REST OF PAGE
 
 #home-main {
   display: flex;
   flex-direction: row;
   // justify-content: flex-start;
   height: 100%;
-  background-color: gray;
+  background-color: rgb(239, 239, 239);
 }
 
 #parkDisplayContainer {
@@ -31,7 +38,7 @@
 
 // DASHBOARD
 .div1 {
-  background: #2d4218;
+  background: rgb(239, 239, 239);
   width: 30%;
   padding: 20px;
   display: flex;

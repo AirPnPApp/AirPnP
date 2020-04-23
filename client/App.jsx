@@ -6,6 +6,7 @@ import Park from './components/park.jsx';
 import Login from './components/login.jsx';
 import ParkDisplay from './components/ParkDisplay.jsx';
 import Landing from './components/Landing.jsx';
+import Loading from './components/Loading.jsx'
 import * as actions from './actions/actions';
 import { connect } from 'react-redux';
 import {

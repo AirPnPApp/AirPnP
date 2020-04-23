@@ -10,7 +10,6 @@ const initialState = {
   toggle: false,
   closestThree: [],
   parksList: [],
-  currentPark: '',
   // State for Individual City
   showPark: false,
   fullName: '',

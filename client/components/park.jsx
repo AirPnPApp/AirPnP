@@ -15,7 +15,7 @@ class Park extends Component {
         pathname: '/park',
         stateLookup: this.props.stateLookup
       }}>
-        <Card className="parkCard">
+        <Card className="parkCard" raised>
           <CardActionArea>
             <CardMedia className="parkCardImage" image={this.props.images[0].url} title="park" component="img">
 

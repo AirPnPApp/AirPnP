@@ -48,6 +48,11 @@ class HomeContainer extends React.Component {
   }
   
   render() {
+    // if (!this.props.toggle) {
+    //   return (
+    //     <Loading location={this.props.location} locationString={this.props.locationString}/>
+    //   )
+    // }
     if (!this.props.toggle) {
       return (
         <Loading location={this.props.location} locationString={this.props.locationString}/>

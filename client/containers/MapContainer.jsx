@@ -26,7 +26,6 @@ const mapDispatchToProps = dispatch => ({
   triggerToggle: () => dispatch(actions.toggle()),
   fetchMarkers: () => dispatch(actions.fetchMarkers()),
   fetchParkInfo: (parkCode) => dispatch(actions.fetchParkInfo(parkCode)),
-  setInfoWindow: (obj) => dispatch(actions.setInfoWindow(obj)),
 })
 
 class MapContainer extends Component {
@@ -34,21 +33,16 @@ class MapContainer extends Component {
     super()
   }
 
-  onMarkerClick(e, marker) { 
-    console.log(e)
-  }
-
   render() {
       // Create markers
       const markers = this.props.closestThree.map(park => {
         return <Marker key={park.latitude+park.longitude} title={park.fullName}
         name={park.parkCode}
-        position={{lat: park.latitude, lng: park.longitude}} onClick={this.onMarkerClick}/>
+        position={{lat: park.latitude, lng: park.longitude}}/>
       })
 
       return (
           <Map
-            // className='myMap'
             flex={2}
             order={3}
             left='150px'
