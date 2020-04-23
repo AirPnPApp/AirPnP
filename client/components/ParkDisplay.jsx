@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Typography, Paper, Input, FormControl, AppBar, makeStyles  } from '@material-ui/core';
 import Park from './park.jsx';
+import { Link, Route } from 'react-router-dom'
 
 
 import '../stylesheets/styles.scss';
- 
+
+<Route path ='/park' component={Park} />
 // mapStateToProps
 const mapStateToProps = state => ({
   fullName: state.park.fullName,
@@ -15,38 +17,14 @@ const mapStateToProps = state => ({
   weather: state.park.weather,
   images: state.park.images,
   activities: state.park.activities,
-  
+  closestThree: state.park.closestThree,
 })
 
 // Production Code =====================================================================================================
-// class ParkDisplay extends Component {
-//   render() {
-//     return (
-//       <div id="parkDisplayContainer">
-//         <h1>{this.props.fullName}</h1>
-//         <img id="parkDisplayImage" src={this.props.images}/>
-//         <ul>
-//           <li className="parkItem" id='description'>{this.props.description}</li>
-//           <li className="parkItem"id='weather'>{this.props.weather}</li>
-//         </ul>
-//       </div>
-//     )
-//   }
-// }
-
-// Test Code ===========================================================================================================
 class ParkDisplay extends Component {
   render() {
+ const currentPark = this.props.closestThree[this.props.location.stateLookup];
     return (
-      // <div id="parkDisplayContainer">
-      //   <h1>{this.props.fullName}</h1>
-      //   <h3>{this.props.city}, {this.props.stateCode}</h3>
-      //   <img id="parkDisplayImage" src={this.props.images}/>
-      //   <ul>
-      //     <li className="parkItem" id='description'>Description: {this.props.description}</li>
-      //     <li className="parkItem"id='weather'>Weather: {this.props.weather}</li>
-      //     <li className="parkItem" id='activities'>Activities: {this.props.activities}</li>
-      //   </ul>
       <div className="parkContainer">
         <div id="parkDisplayContainer">
             <img id="parkDisplayImage" src="https://www.nps.gov/common/uploads/structured_data/3C82A965-1DD8-B71B-0B42F2CD698E11A7.jpg"/>
@@ -70,6 +48,7 @@ class ParkDisplay extends Component {
     )
   }
 }
+
 
 export default connect(mapStateToProps, null)(ParkDisplay);
 

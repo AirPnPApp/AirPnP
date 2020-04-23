@@ -107,10 +107,5 @@ export const setParks = (closestThree) => {
   };
 };
 
-// SET INFO WINDOW
-export const setInfoWindow = (obj) => ({
-  type: types.SET_INFO_WINDOW,
-  payload: obj,
-});
 
 

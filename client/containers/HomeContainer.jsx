@@ -30,6 +30,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   setParks: (closestThree) => {dispatch(actions.setParks(closestThree))},
+  setCurrentpark: (park) => {dispatch(action.setCurrentpark(park))}
 })
 
 
@@ -40,7 +41,9 @@ class HomeContainer extends React.Component {
 
   componentDidMount() {
     if (this.props.location.length > 0) {
-      this.props.setParks(this.props.closestThree)
+      if (this.props.toggle === false) {
+        this.props.setParks(this.props.closestThree)
+      }
     }
   }
   
@@ -51,31 +54,26 @@ class HomeContainer extends React.Component {
       )
     }
     return(
-        <Router>
         <div id='home-main'>
-            <Switch>
-              <Route path="/signup">
-                <Login />
-              </Route>
-              <Route path="/">
                 <div className="div1">
                   {this.props.closestThree.map((park, index) => {
                     return <Park 
                       key={park.fullName + index}
+                      stateLookup={index}
                       fullName={park.fullName}
                       images={park.images}
-                      states={park.states}                      
-                
+                      states={park.states} 
+                      description={park.description}
+                      park={park}
+                      setCurrentPark={this.props.setCurrentpark}
+                      
                     />
                   })}                  
                 </div>
                 <div className="div2">
                   <MapContainer />
                 </div>
-              </Route>
-            </Switch>
         </div>
-      </Router >
     )
   }
 }
