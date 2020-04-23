@@ -58,7 +58,7 @@ class MapContainer extends Component {
               lat: this.props.location[0],
               lng: this.props.location[1]
             }}
-            zoom={5}
+            zoom={7}
 
           >
             {markers}
