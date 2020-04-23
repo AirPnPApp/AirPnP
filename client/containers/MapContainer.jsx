@@ -8,8 +8,7 @@ import { connect } from 'react-redux';
 
 // The <Marker /> component accepts a position prop that defines the location for the position on the map. 
 // It can be either a raw object or a google.maps.LatLng() instance.
-const containerStyle = {
-  position: 'absolute',  
+const containerStyle = { 
   width: '50%',
   height: '50%'
 }

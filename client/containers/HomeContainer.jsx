@@ -58,6 +58,9 @@ class HomeContainer extends React.Component {
                 <Login />
               </Route>
               <Route path="/">
+                  <MapContainer />
+                  <div id="blankSpace">
+                  </div>
                 <div id="innerBox">
                   {this.props.closestThree.map((park, index) => {
                     return <Park 
@@ -69,7 +72,6 @@ class HomeContainer extends React.Component {
                     />
                   })}                  
                 </div>
-                <MapContainer />
               </Route>
             </Switch>
         </div>

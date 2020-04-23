@@ -40,12 +40,16 @@
 //   border-radius: 5px;
 // }
 
+#blankSpace {
+  width: 60%;
+}
+
 #innerbox {
   display: flex;
   flex-direction: column;
   background: #f0ead6;
   padding: 5px;
-  width: 50%;
+  width: 100%;
   // margin: 5px; 
   
   
