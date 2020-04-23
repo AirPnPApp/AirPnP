@@ -33,7 +33,7 @@ class Park extends Component {
           <ul>
             <h2>{this.props.fullName}</h2>
             <img id="image" src={this.props.images[0].url} width={200} height={200}></img>
-            <h4>{this.props.city}, {this.props.stateCode}</h4>
+            <h4>{this.props.city} - {this.props.stateCode}</h4>
           </ul>
         </div >
       </Link>

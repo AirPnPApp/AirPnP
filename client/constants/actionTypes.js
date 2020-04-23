@@ -10,3 +10,4 @@ export const PARKINFO = "PARKINFO";
 export const LOGGED_IN_USER = "LOGGED_IN_USER";
 export const SET_LOCATION = "SET_LOCATION";
 export const SET_PARKS = "SET_PARKS";
+export const SET_INFO_WINDOW = "SET_INFO_WINDOW";
