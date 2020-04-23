@@ -27,8 +27,10 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   setLocation: (e) => {
+    const input = document.querySelector('#zip-input')
+    console.log(input.value)
     e.preventDefault();
-    const location = e.target.firstChild.value;
+    const location = input.value;
     dispatch(actions.setLocation(location))
   },
   

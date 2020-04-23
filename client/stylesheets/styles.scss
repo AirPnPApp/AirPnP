@@ -1,7 +1,7 @@
 * {
   padding: 0;
   margin: 0;
-  // box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 
@@ -53,4 +53,32 @@
   // margin: 5px; 
   
   
+}
+
+
+// LANDING PAGE
+.landingWrapper {
+  height: 100vh;
+  background: url(https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80) no-repeat center center fixed; 
+}
+
+.landingBox {
+  width: 40%;
+  height: 20%;
+  opacity: 0.8;
+  padding-top: 20px;
+  margin-top: 200px;
+
+    Button {
+      margin-top: 30px;
+    }
+
+  }
+  
+.appbar {
+  opacity: 0.85;
+}
+
+input {
+  text-align: center;
 }
