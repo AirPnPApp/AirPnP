@@ -17,6 +17,7 @@ import {
 
 // (Optional) import stylesheet here.
 import './stylesheets/styles.scss';
+import HomeContainer from './containers/HomeContainer.jsx';
 
 const mapStateToProps = state => ({
   loggedInUser: state.park.loggedInUser,
@@ -41,11 +42,6 @@ class App extends React.Component {
     super(props)
   }
   
-  componentDidMount() {
-    // send dispatch to get three closest from nps
-    
-  }
-
   render() {
     // CHECKING IF USER IS LOGGED IN/ SIGNED UP --------------------------------
     if (this.props.location === '') {
@@ -56,16 +52,12 @@ class App extends React.Component {
       return (
         <Router>
           <div id='main'>
-            <h1>🌲  Parks Planner  🌲</h1>
-            <h2>Hello, {this.props.loggedInUser} ! </h2>
               <Switch>
-                <Route path="/">
-                  <MapContainer />
-                  <div id="innerBox">
-                    {this.props.showPark ?
-                      <Park />
-                      : <div id="innerBox"><b>Select a park to view info!</b></div>}
-                  </div>
+                <Route exact path="/">
+                  <HomeContainer />
+                </Route>
+                <Route exact path="/park">
+                  <ParkDisplay />
                 </Route>
               </Switch>
           </div>
@@ -77,21 +69,15 @@ class App extends React.Component {
     else return (
       <Router>
         <div id='main'>
-          <h1>🌲  Parks Planner  🌲</h1>
           <Link to="/signup">Sign Up / Log-in</Link>
-            <Switch>
-              <Route path="/signup">
-                <Login />
-              </Route>
-              <Route path="/">
-                <MapContainer />
-                <div id="innerBox">
-                  {this.props.showPark ?
-                    <Park />
-                    : <div id="innerBox"><b>Select a park to view info!</b></div>}
-                </div>
-              </Route>
-            </Switch>
+          <Switch>
+                <Route exact path="/">
+                  <HomeContainer />
+                </Route>
+                <Route exact path="/park">
+                  <ParkDisplay />
+                </Route>
+              </Switch>
         </div>
       </Router >
     )
