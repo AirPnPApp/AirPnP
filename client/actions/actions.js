@@ -94,9 +94,10 @@ export const SET_PARKS = (closestThree) => ({
   closestThree: closestThree,
 });
 
-export const setParks = () => {
+export const setParks = (closestThree) => {
+  console.log(closestThree)
   return (dispatch) => {
-    return fetch(`https://developer.nps.gov/api/v1/parks?parkCode=yose,anac,cave&api_key=${process.env.NPS_API_KEY}`)
+    return fetch(`https://developer.nps.gov/api/v1/parks?parkCode=${closestThree.join()}&api_key=${process.env.NPS_API_KEY}`)
       .then(res => res.json())
       .then(parsed => {
         dispatch(SET_PARKS(parsed.data))
@@ -105,5 +106,11 @@ export const setParks = () => {
     })
   };
 };
+
+// SET INFO WINDOW
+export const setInfoWindow = (obj) => ({
+  type: types.SET_INFO_WINDOW,
+  payload: obj,
+});
 
 

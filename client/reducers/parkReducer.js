@@ -5,7 +5,7 @@ const initialState = {
   loggedInUser: '',
   location: '',
   locationString: '',
-
+  
   // State for all Markers
   toggle: false,
   closestThree: [],
@@ -105,6 +105,14 @@ const parkReducer = (state = initialState, action) => {
       return {
         ...state,
         closestThree: action.closestThree,
+      }
+    
+    case types.SET_INFO_WINDOW:
+      return {
+        ...state,
+        selectedPlace: action.payload.selectedPlace,
+        showingInfoWindow: action.payload.showingInfoWindow,
+        activeMarker: action.payload.activeMarker,   
       }
 
     default:
