@@ -2,21 +2,19 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core'
 
-let park = "/park"
 
 class Park extends Component {
   constructor() {
     super()
   }
 
-  // handleClick(e){
-  //   console.log(e)
-  //   e.preventDefault();
-  // }
 
   render() {
     return (
-      <Link to={park} onClick={() => console.log('hello')}>
+      <Link to={{
+        pathname: '/park',
+        stateLookup: this.props.stateLookup
+      }}>
         <Card className="parkCard">
           <CardActionArea>
             <CardMedia className="parkCardImage" image={this.props.images[0].url} title="park" component="img">
@@ -33,9 +31,3 @@ class Park extends Component {
   }
 }
 export default Park;
-
-
-          // <ul>
-          //   <h2>{this.props.fullName}, {this.props.states}</h2>
-          //   <img id="image" src={this.props.images[0].url} width={200} height={200}></img>
-          // </ul>
