@@ -40,7 +40,9 @@ class HomeContainer extends React.Component {
 
   componentDidMount() {
     if (this.props.location.length > 0) {
-      this.props.setParks(this.props.closestThree)
+      if (this.props.closestThree.length) {
+        this.props.setParks(this.props.closestThree)
+      }
     }
   }
   
@@ -65,7 +67,7 @@ class HomeContainer extends React.Component {
                       fullName={park.fullName}
                       images={park.images}
                       states={park.states}                      
-                
+                      description={park.description}
                     />
                   })}                  
                 </div>
