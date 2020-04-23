@@ -16,7 +16,7 @@ class Park extends Component {
 
   render() {
     return (
-      <Link to={park}>
+      <Link to={park} onClick={() => console.log('hello')}>
         <Card className="parkCard">
           <CardActionArea>
             <CardMedia className="parkCardImage" image={this.props.images[0].url} title="park" component="img">
