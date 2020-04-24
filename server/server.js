@@ -32,7 +32,10 @@ app.post('/signup',
 // GET/ login (NEED TO MAKE THIS ENDPOINT)
 app.post('/login',
   userController.verifyLoginUser,
-  (req, res) => res.status(200).json("you have logged in!")
+  (req, res) => {
+    console.log('weighowieg')
+    res.status(200).json("you have logged in!")
+  }
 );
 
 // ----------------------------------------------------------------------------
