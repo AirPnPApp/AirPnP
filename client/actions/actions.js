@@ -58,8 +58,9 @@ export const LOGGED_IN_USER = (loggedInUserData) => ({
 });
 
 export const logIn = (logInInfo) => {
+  console.log(logInInfo)
   return (dispatch) => {
-    return axios.get('/login', { params: { info: logInInfo } }).then((res) => {
+    return axios.post('/login',  { username: logInInfo[0], password: logInInfo[1]  }).then((res) => {
       dispatch(LOGGED_IN_USER(res.data.username));
     });
   };

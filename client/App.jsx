@@ -48,31 +48,43 @@ class App extends React.Component {
   render() {
     // CHECKING IF USER IS LOGGED IN/ SIGNED UP --------------------------------
     if (this.props.location === '') {
-      return <Landing setLocation={this.props.setLocation}/>
-    }
-    // User is logged in/ signed up
-    if (this.props.loggedInUser.length > 0) {
       return (
-        <Router>
-          <div id='main'>
-            <Nav />
-              <Switch>
-                <Route path="/" exact component={HomeContainer} />
-                <Route path="/park" exact component={ParkDisplay} />
-              </Switch>
-          </div>
-        </Router >
-      )
-    }
+      <Router>
+        <Switch>
+          <Route path="/" exact>
+            <Landing setLocation={this.props.setLocation}/>
+          </Route>
+          <Route path="/signup" exact component={Login} />
+        </Switch>
+      </Router>
+  
+      
+      )}
+    // User is logged in/ signed up
+    // if (this.props.loggedInUser.length > 0) {
+    //   return (
+    //     <Router>
+    //       <div id='main'>
+    //         <Nav />
+    //           <Switch>
+    //             <Route path="/" exact component={HomeContainer} />
+    //             <Route path="/park" exact component={ParkDisplay} />
+    //             <Route path="/signup" exact component={Login} />
+    //           </Switch>
+    //       </div>
+    //     </Router >
+    //   )
+    // }
     
     // user is NOT Logged In/ Signed Up
     else return (
       <Router>
         <div id='main'>
-          <Link to="/signup">Sign Up / Log-in</Link>
+          <Nav />
           <Switch>
             <Route path="/" exact component ={HomeContainer} />
             <Route path="/park" exact component={ParkDisplay} />
+            <Route path="/signup" exact component={Login} />
           </Switch>
         </div>
       </Router >

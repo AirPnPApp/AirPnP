@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container, Typography, Paper, Input, FormControl, AppBar, makeStyles  } from '@material-ui/core';
+import { Container, Typography, Paper, Input, FormControl, AppBar, makeStyles, CardMedia  } from '@material-ui/core';
 import Park from './park.jsx';
 import { Link, Route } from 'react-router-dom'
 import WeatherBar from './WeatherBar.jsx'
-
 
 import '../stylesheets/styles.scss';
 
@@ -26,25 +25,30 @@ class ParkDisplay extends Component {
 
   render() {
     const currentPark = this.props.closestThree[this.props.location.stateLookup];
+    const activities = currentPark.activities.map(activity => {
+      return activity.name + ', '
+    })
     return (
       <div className="parkContainer">
         <div id="parkDisplayContainer">
-            <img id="parkDisplayImage" src="https://www.nps.gov/common/uploads/structured_data/3C82A965-1DD8-B71B-0B42F2CD698E11A7.jpg"/>
+          <div className="imgDiv">
+            <img id="parkDisplayImage" src={currentPark.images[0].url}/>
+          </div>
           <div className="h1Container">
-            <Typography variant="h1">Anacostia National Park</Typography>
+            <Typography variant="h3">{currentPark.fullName}</Typography>
           </div>
         </div>
         <div className="parkDisplayText" id="about">
           <Typography variant="h4" style={styles.h4}>About     &nbsp;</Typography>
-          <Typography variant="body1" id="description" style={styles.body}>Welcome to Anacostia Park, your neighborhood national park in the heart of Washington, DC!\nEnjoy exercise along the river trail or relax by the water, Anacostia Park is a breath of fresh air and a space to unwind amid a bustling city.</Typography>
+          <Typography variant="body1" id="description" style={styles.body}>{currentPark.description}</Typography>
         </div>
         <div className="parkDisplayText" id="weather">
           <Typography variant="h4" style={styles.h4}>Weather </Typography>
-          <Typography variant="body1" id="description" style={styles.body}>Spring brings mild temperatures and a light breeze along with springtime flower blooms. Summer can be hot and humid. Fall cools down and changing of the seasons brings changing of </Typography>
+          <Typography variant="body1" id="description" style={styles.body}>{currentPark.weatherInfo}</Typography>
         </div>
         <div className="parkDisplayText" id="activites">
           <Typography variant="h4" style={styles.h4}>Activites</Typography>
-          <Typography variant="body1" id="description" style={styles.body}>Hiking, Biking, Extreme Kiting, Sailing, Rowboating, Meth.</Typography>
+          <Typography variant="body1" id="description" style={styles.body}>{activities}</Typography>
         </div>
       </div>
     )

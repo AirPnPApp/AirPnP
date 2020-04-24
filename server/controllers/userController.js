@@ -43,10 +43,13 @@ userController.verifySignUpUser = (req, res, next) =>{
 }
 
 userController.verifyLoginUser = (req, res, next) =>{
+  // console.log(req.body)
   const checkUser = 
   `SELECT * FROM users WHERE username = $1`
   
-    const {username, password } = req.body
+    const { username, password } = req.body
+    // console.log(req.body)
+    // console.log(username, password)
   
 
     const user = [username]
