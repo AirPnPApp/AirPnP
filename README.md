@@ -1,6 +1,7 @@
 # AirPnP
 
-![preview](https://i.imgur.com/lLaZ4Ux.jpg)
+![home page](https://i.imgur.com/lLaZ4Ux.jpg)
+![national parks near you](https://i.imgur.com/pcMTHjn.png)
 
 /******  APIs *******/
 * Used Google Maps API and goole-maps-react to render the Maps component. 
